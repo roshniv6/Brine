@@ -18,7 +18,7 @@ def identify_top_customers(orders, n=10):
     return orders.groupby('customerID')['product_price'].sum().nlargest(n)
 
 if __name__ == "__main__":
-    orders = read_orders_csv("test.csv")
+    orders = read_orders_csv("https://github.com/roshniv6/Brine/blob/a8d33a5b928d47e45c11d92c841fd97be1169590/test.csv")
 
     monthly_revenue = compute_monthly_revenue(orders)
     product_revenue = compute_product_revenue(orders)
