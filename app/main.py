@@ -1,11 +1,10 @@
 import pandas as pd
-from datetime import datetime
 
 def read_orders_csv(file_path):
-    return pd.read_csv(file_path)
+    return pd.read_csv(file_path, delimiter='\t')
 
 def compute_monthly_revenue(orders):
-    orders['order_date'] = pd.to_datetime(orders['order_date'])
+    orders['order_date'] = pd.to_datetime(orders['order_date'], format='%d/%m/%y')
     orders['month'] = orders['order_date'].dt.to_period('M')
     return orders.groupby('month')['product_price'].sum()
 
@@ -13,13 +12,13 @@ def compute_product_revenue(orders):
     return orders.groupby('product_name')['product_price'].sum()
 
 def compute_customer_revenue(orders):
-    return orders.groupby('customer_id')['product_price'].sum()
+    return orders.groupby('customerID')['product_price'].sum()
 
 def identify_top_customers(orders, n=10):
-    return orders.groupby('customer_id')['product_price'].sum().nlargest(n)
+    return orders.groupby('customerID')['product_price'].sum().nlargest(n)
 
 if __name__ == "__main__":
-    orders = read_orders_csv("orders.csv")
+    orders = read_orders_csv("test.csv")
 
     monthly_revenue = compute_monthly_revenue(orders)
     product_revenue = compute_product_revenue(orders)
