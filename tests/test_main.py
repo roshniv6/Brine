@@ -3,7 +3,7 @@ from main import read_orders_csv, compute_monthly_revenue, compute_product_reven
 
 class TestOrderAnalysis(unittest.TestCase):
     def setUp(self):
-        self.orders = read_orders_csv("test_orders.csv")
+        self.orders = read_orders_csv("test.csv")
 
     def test_compute_monthly_revenue(self):
         # Add test cases
