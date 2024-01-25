@@ -20,3 +20,39 @@ Update the Excel filename in the code ('orders.xlsx') to your Excel file name.
 Run the script using Python:
 
 python your_filename.py
+
+
+
+The output should be something like this
+
+Monthly Revenue:
+ order_date
+2023-01     70
+2023-02    110
+2023-03     50
+2023-04    135
+2023-05     70
+Freq: M, Name: total_cost, dtype: int64
+
+Product Revenue:
+ product_name
+ProductA    160
+ProductB    150
+ProductC    125
+Name: total_cost, dtype: int64
+
+Customer Revenue:
+ customer_id
+101    140
+102     80
+103    110
+104    105
+Name: total_cost, dtype: int64
+
+Top 10 Customers:
+ customer_id
+101    140
+103    110
+104    105
+102     80
+Name: total_cost, dtype: int64
